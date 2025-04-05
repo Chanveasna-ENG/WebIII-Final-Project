@@ -1,6 +1,4 @@
-Web II Final Project : Pisa Restaurant Website  
-
-Link to our video presentation : https://drive.google.com/file/d/1_udPMd5dfecvzFdztsyVnioLq6NlpptF/view?usp=drivesdk 
+Web III Final Project : Pisa Restaurant Website  
 
 Pisa is a comprehensive website showcasing Cambodian cuisine, local restaurants, and dining experiences. 
 This project combines an intuitive design, user-friendly interface, and relevant features to help users explore, discover, 
@@ -24,14 +22,25 @@ Easy Navigation: Intuitive navbar and footer for seamless browsing.
 Interactive Booking: Allows users to make reservations or contact the restaurant directly.
 
 ## Technologies Used  
-HTML5, CSS3, JavaScript
+HTML5, CSS3, JavaScript, Node JS, Express.js, MySQL
 
-## Project Team 
-Sreytoch Brak 
-Socheata Peng
-Sovanrothnan Ham
-Hongnida Lorn
+## New Project Team
+- Chanveasna ENG
+- David HEANG
+- Kolsambath SAMBO
+- Phallei NIN
+- Socheata PENG
+
+## OLD Project Team 
+- Sreytoch Brak 
+- Socheata Peng
+- Sovanrothnan Ham
+- Hongnida Lorn
 
 We are all from School of Digital Technologies of the American University of Phnom Penh.
- 
+
 This project is submitted as the requirement of INFO 251 001 class instructuced by Dr. Aruna Shankar.
+
+## Thank You Letter
+
+We would like to thank to the old team for their hard work and dedication in creating the first version of this project (Frontend).
