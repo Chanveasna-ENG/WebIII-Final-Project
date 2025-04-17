@@ -1,27 +1,26 @@
 function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
-
+    const imageDir = "./image/food/";
     // Dish arrays for each meal with image URLs
     const breakfastDishes = [
-        { name: 'Rice Pork', img: 'ricePork.jpg'},
-        { name: 'Nom Banh Chok', img: 'BanhChok.jpg' },
-        { name: 'Banh Chew', img: 'BanhChew.jpg' },
-        { name: 'Cambodian porridge', img: 'Congee.jpg' },
+        { name: 'Rice Pork', img: imageDir + 'ricePork.jpg' },
+        { name: 'Nom Banh Chok', img: imageDir + 'BanhChok.jpg' },
+        { name: 'Banh Chew', img: imageDir + 'BanhChew.jpg' },
+        { name: 'Cambodian porridge', img: imageDir + 'Congee.jpg' },
     ];
     const lunchDishes = [
-        { name: 'Samlor Korko ', img: 'Korko.jpg' },
-        { name: 'Amok Trey', img: 'Amok.jpg' },
-        { name: 'Lok Lak beef', img: 'LokLak.jpg' },
-        { name: 'Bee grill', img: 'Bee.jpg' },
+        { name: 'Samlor Korko ', img: imageDir + 'Korko.jpg' },
+        { name: 'Amok Trey', img: imageDir + 'Amok.jpg' },
+        { name: 'Lok Lak beef', img: imageDir + 'LokLak.jpg' },
+        { name: 'Bee grill', img: imageDir + 'Bee.jpg' },
     ];
     const dinnerDishes = [
-        { name: 'Lort Cha', img: 'Lort.jpg' },
-        { name: 'Grill Beef', img: 'Beef.jpg' },
-        { name: 'Khor', img: 'Khor.jpg' },
-        { name: 'Grill Chicken', img: 'Chicken.jpg' },
+        { name: 'Lort Cha', img: imageDir + 'Lort.jpg' },
+        { name: 'Grill Beef', img: imageDir + 'Beef.jpg' },
+        { name: 'Khor', img: imageDir + 'Khor.jpg' },
+        { name: 'Grill Chicken', img: imageDir + 'Chicken.jpg' },
     ];
-
     // Clear previous displays
     document.getElementById('breakfast').style.display = 'none';
     document.getElementById('lunch').style.display = 'none';

@@ -6,7 +6,7 @@
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(59, 0, 0, 0.3), rgba(59, 0, 0, 0.3)),
-    url(amok.webp);
+    url(../image/food/amok.webp);
     opacity: 100%;
     background-size:cover;
     background-position:center;
