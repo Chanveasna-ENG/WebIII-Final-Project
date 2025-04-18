@@ -18,10 +18,12 @@ img {
     width: 200px;
     /* border: 1px solid black; */
 }
-.navbar{
+
+/* Navigation Bar */
+.navbar {
     font-size: 18px;
     width: 85%;
-    height: 25px;
+    height: fit-content;
     margin-left: 20px;
     margin-right: 2px;
     padding: 20px 0px;
@@ -29,35 +31,38 @@ img {
     align-items: center;
     justify-content: space-between;
 }
-.navbar ul li{
+
+
+.navbar ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 30px;
     margin-right: 10px;
     margin-left: 15vh;
-    padding-left: 10px;
     margin-inline-end: auto;
     position: relative;
-
 }
-.navbar ul li a{
+
+.navbar ul li a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     text-transform: uppercase;
 }
-.navbar ul li a::after{
+
+.navbar ul li a::after {
     content: '';
     height: 3px;
     width: 0;
-    background:rgb(144, 0, 0);
+    background: rgb(144, 0, 0);
     position: absolute;
-    left: 0;    
+    left: 0;
     bottom: -10px;
-    transition:0.5s ;
+    transition: 0.5s;
 }
-.navbar ul li a:hover::after{
+
+.navbar ul li a:hover::after {
     width: 100%;
 }
+
 .content{
     width: 100%;
     position: absolute;
