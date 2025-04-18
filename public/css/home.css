@@ -84,6 +84,72 @@ img {
     font-family: cursive;
     -webkit-text-stroke: 0.5px rgb(255, 115, 0);
 }
+
+#menu {
+    padding: 20px;
+  }
+#menu h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: -100px;
+}
+  
+  .menu-section {
+    margin-bottom: 40px;
+  }
+  
+  .dish-list {
+    display: flex;
+    flex-direction: row;   /* Force row layout */
+    flex-wrap: nowrap;     /* Prevent wrapping if you want scroll */
+    gap: 20px;
+    overflow-x: auto;      /* Horizontal scroll */
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .dish {
+    flex: 0 0 auto;         /* Prevent shrinking, allow horizontal scrolling */
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    scroll-snap-align: start;
+  }
+  
+  .dish img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .dish h3 {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  .dish p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Optional: Hide scrollbar */
+  .dish-list::-webkit-scrollbar {
+    display: none;
+  }
+  .dish-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  
+/* ------------------------------------- */
 .p1 {
     /* position: relative; */
     font-size: 25px;
@@ -300,3 +366,6 @@ footer a:hover {
     margin-top: 20px;
     margin-bottom: -10px;
 }
+
+
+  

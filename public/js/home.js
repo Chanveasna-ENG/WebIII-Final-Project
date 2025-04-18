@@ -1,73 +1,214 @@
-function updateTime() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const imageDir = "./image/food/";
-    // Dish arrays for each meal with image URLs
-    const breakfastDishes = [
-        { name: 'Rice Pork', img: imageDir + 'ricePork.jpg' },
-        { name: 'Nom Banh Chok', img: imageDir + 'BanhChok.jpg' },
-        { name: 'Banh Chew', img: imageDir + 'BanhChew.jpg' },
-        { name: 'Cambodian porridge', img: imageDir + 'Congee.jpg' },
+const breakfastDishes = [
+        { 
+            name: 'Steamed Rice with Pork', 
+            img: 'https://images.deliveryhero.io/image/fd-kh/Products/2384350.jpg?width=%s', 
+            alt: 'steamed rice with pork',
+            type: 'breakfast',
+            price: '4000៛',
+            description: 'Perfectly cooked steamed rice with grilled pork and omelette, complemented by fresh cucumber and tomato, tangy pickles and savory dipping sauce.'
+        },
+        { 
+            name: 'Chicken with Steamed Rice', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/843231.jpg?width=%s", 
+            alt: "Chicken with Steamed Rice",
+            type: 'breakfast',
+            price: '5000៛',
+            description: "Juicy grilled chicken served over fragrant steamed rice, with a side of fresh cucumber and tomato, tangy pickles and savory dipping sauce."
+        },
+        { 
+            name: 'Nom Banh Jok', 
+            img: "https://www.desidakaar.com/wp-content/uploads/2019/11/kinh-nghiem-du-lich-campuchia-tu-a-den-z-29-768x637.jpg", 
+            alt: "Nom Banh Jok",
+            type: 'breakfast',
+            price: '7000៛',
+            description: "A traditional rice noodle dish served with a flavorful fish-based curry and an assortment of fresh herbs and vegetables."
+        },
+        { 
+            name: 'Fish Porridge', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/476548.jpg?width=%s", 
+            alt: "Fish Porridge",
+            type: 'breakfast',
+            price: '6000៛',
+            description: "Warm and comforting rice porridge simmered with delicate fish and seasoned to perfection."
+        },
+        { 
+            name: 'Chicken Porridge', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/476572.jpg?width=%s", 
+            alt: "Chicken Porridge",
+            type: 'breakfast',
+            price: '6000៛',
+            description: "A soothing bowl of seasoned rice porridge infused with tender chicken and fragrant spices"
+        },
+        { 
+            name: 'Kuy Teav Phnom Penh', 
+            img: "https://khema.thalias.com.kh/wp-content/uploads/2022/03/Kuy-Teav-Phnom-Penh.jpg", 
+            alt: "Kuy Teav Phnom Penh",
+            type: 'breakfast',
+            price: '8000៛',
+            description: "A classic Cambodian noodle soup featuring silky rice noodles, aromatic broth, and an assortment of savory toppings including pork, beef, or seafood."
+        },
+    
+        
     ];
     const lunchDishes = [
-        { name: 'Samlor Korko ', img: imageDir + 'Korko.jpg' },
-        { name: 'Amok Trey', img: imageDir + 'Amok.jpg' },
-        { name: 'Lok Lak beef', img: imageDir + 'LokLak.jpg' },
-        { name: 'Bee grill', img: imageDir + 'Bee.jpg' },
+        
+        { 
+            name: 'Fish Amok', 
+            img: "https://foodfuntravel.com/wp-content/uploads/2020/09/Trey-Amok-Fish-Amok-Cambodia.jpg", 
+            alt: "Fish Amok",
+            type: 'lunch',
+            price: '12000៛',
+            description: "Nation dish of Cambodian, a creamy and fragrant fish curry made with coconut milk, eggs, and a blend of spices, steamed in banana leaves for added aroma and flavor."
+        },
+        { 
+            name: 'Beef Lok Lak', 
+            img: "https://spicygelato.kitchen/wp-content/uploads/2022/03/BeefLokLak-scaled.jpg", 
+            alt: "Beef Lok Lak",
+            type: 'lunch',
+            price: '8000៛',
+            description: "A popular stir-fried beef dish served with a savory sauce made from soy sauce, garlic, and lime. It’s often accompanied by rice and a fried egg on top, adding richness to the meal."
+        },
+        { 
+            name: 'Stir-Fried Ginger with Pork Ribs', 
+            img: "https://pppkhmer.sgp1.digitaloceanspaces.com/image/main/field/image/150519_22a.jpg", 
+            alt: "Stir-fried ginger with pork ribs",
+            type: 'lunch',
+            price: '7000៛',
+            description: "Tender pork ribs stir-fried with fresh ginger, garlic, and spices. The dish is fragrant, slightly spicy, and offers a savory, flavorful combination."
+        },
+        {
+            name: 'Stir-Fried Chicken with Lemongrass Paste', 
+            img: "https://grantourismotravels.com/wp-content/uploads/2020/10/Cambodian-Lemongrass-Chicken-Stir-Fry-Recipe-Copyright-2022-Terence-Carter-Grantourismo-T.jpg", 
+            alt: "Stir-Fried Chicken with Lemongrass Paste",
+            type: 'lunch',
+            price: '7000៛',
+            description: " Chicken pieces stir-fried with a fragrant lemongrass paste, garlic, and chili, creating a flavorful, aromatic dish with a balance of spice and citrus."
+        },
+        { 
+            name: 'Samlor Machu Youn', 
+            img: "https://instalacarte.com/media/cache/mobile_image/product/4756/63733/05156d7c4d4a69b5dd700bd543ca6f28.jpg", 
+            alt: "Machu Youn",
+            type: 'lunch',
+            price: '6000៛',
+            description: "A sour Cambodian soup made with beef or pork, tamarind, and various herbs, offering a tangy and refreshing flavor."
+        },
+        { 
+            name: 'Dried Fish Rice with Watermelon', 
+            img: "https://i0.wp.com/flavourfullygood.com/wp-content/uploads/2022/07/Dried-Fish-Rice-1-Flavourfully-Good.jpg?fit=1600%2C1067&ssl=1", 
+            alt: "Dried Fish Rice with Watermelon",
+            type: 'lunch',
+            price: '6000៛',
+            description: "A unique Cambodian dish featuring dried fish served with rice and refreshing watermelon, balancing savory and sweet flavors."
+        },
+        
     ];
+
     const dinnerDishes = [
-        { name: 'Lort Cha', img: imageDir + 'Lort.jpg' },
-        { name: 'Grill Beef', img: imageDir + 'Beef.jpg' },
-        { name: 'Khor', img: imageDir + 'Khor.jpg' },
-        { name: 'Grill Chicken', img: imageDir + 'Chicken.jpg' },
+        { 
+            name: 'Braised Pork Belly', 
+            img: "https://i.ytimg.com/vi/QTWVqKeYhJs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAGvrDH3hgIrVGXp5B-JlQ7HkMxdA", 
+            alt: "Braised Pork Belly",
+            type: 'dinner',
+            price: '5000៛',
+            description: "Pork belly slow-cooked in a rich, savory sauce made with soy sauce, sugar, and spices, resulting in tender, flavorful meat with a caramelized glaze."
+        },
+        { 
+            name: 'Fried Rice', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/2380953.jpg?width=%s", 
+            alt: "Fried Rice",
+            type: 'dinner',
+            price: '6000៛',
+            description: "Cambodian-style fried rice made with vegetables, meat (such as chicken or shrimp), and eggs, all stir-fried together with a touch of soy sauce for a savory meal."
+        },
+        { 
+            name: 'Stir-fried Noodle', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/111481.jpg?width=%s", 
+            alt: "stir-fried noodle",
+            type: 'dinner',
+            price: '6000៛',
+            description: "Stir-fried noodles with vegetables, meat, or seafood, seasoned with soy sauce, garlic, and spices, creating a savory, well-balanced dish."
+        },
+        { 
+            name: 'Tom Yum', 
+            img: "https://images.deliveryhero.io/image/fd-kh/Products/86510.jpg?width=%s", 
+            alt: "Tom Yum",
+            type: 'dinner',
+            price: '6000៛',
+            description: "Stir-fried noodles with vegetables, meat, or seafood, seasoned with soy sauce, garlic, and spices, creating a savory, well-balanced dish."
+        },
+        { 
+            name: 'Machu Ktiss', 
+            img: "https://i.ytimg.com/vi/Mx9txlDtAWQ/sddefault.jpg", 
+            alt: "Machu Ktiss",
+            type: 'dinner',
+            price: '6000៛',
+            description: "A fragrant and spicy Thai-inspired soup made with shrimp, herbs like lemongrass and kaffir lime leaves, chili, and a tangy broth, offering a bold, sour, and spicy flavor."
+        },
+        { 
+            name: 'Cha Kdav Morn', 
+            img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQHyIqx7OVgcU7-f5PTPSm22PaCx8mV7zuxN9wNyYGwW8jTsTr_P0K18Y5YFYQJfLVFVebNxsk00iq7iaoH0cVRhJbDrfJf7nwQUARJXlUYwa8ZvFnZOMCZEJtTu47kXiOXwHc02kUG0Ff/s1600/17523360_715923851901546_2171140692656135111_n.jpg", 
+            alt: "Cha Kdav Morn",
+            type: 'dinner',
+            price: '6000៛',
+            description: "a spicy stir-fried chicken dish, typically made with fresh herbs like basil or lemongrass. The chicken is cooked with a flavorful, aromatic sauce that balances heat and savory notes, creating a fragrant and spicy meal."
+        },
     ];
-    // Clear previous displays
-    document.getElementById('breakfast').style.display = 'none';
-    document.getElementById('lunch').style.display = 'none';
-    document.getElementById('dinner').style.display = 'none';
-
-    // Show meals based on the current hour
-    if (hours > 1 && hours < 12) {
-        displayDishes('breakfast', breakfastDishes);
-    } else if (hours >= 12 && hours < 19) {
-        displayDishes('lunch', lunchDishes);
-    } else if (hours >= 19 && hours < 24) {
-        displayDishes('dinner', dinnerDishes);
-    }
-
-}
-function displayDishes(mealType, dishes) {
-    const mealItem = document.getElementById(mealType);
-    mealItem.style.display = 'block';
-    
-    // Clear previous dishes
-    const mealList = document.getElementById('mealItem');
-    mealList.innerHTML = '';
-
-    // Create a container for the dishes
-    const dishContainer = document.createElement('div');
-    dishContainer.className = 'meal-container'; // Add the CSS class for styling
-    mealList.appendChild(dishContainer);
-
-    // Display dishes with images
-    dishes.forEach((dish, index) => {
-        if (index < 4) { // Show 4 dishes
-            const dishElement = document.createElement('div');
-            dishElement.className = 'dish-element'; // Add the CSS class for styling
-
-            const dishName = document.createElement('div');
-            dishName.textContent = dish.name;
-            dishElement.appendChild(dishName);
-
-            // Create and append the dish image
-            const dishImage = document.createElement('img');
-            dishImage.src = dish.img; // Set the source to the image URL
-            dishImage.alt = dish.name; // Set alt text for the image
-            dishElement.appendChild(dishImage);
-
-            // Append the dish element to the container
-            dishContainer.appendChild(dishElement);
-        }
-    });
-}
-updateTime();
+    function createMealSection(title, dishes) {
+        const section = document.createElement('div');
+        section.classList.add('menu-section');
+      
+        const heading = document.createElement('h2');
+        heading.textContent = title;
+        section.appendChild(heading);
+      
+        // ➕ NEW: wrapper for horizontal layout
+        const dishList = document.createElement('div');
+        dishList.classList.add('dish-list');
+      
+        dishes.forEach(dish => {
+          const dishDiv = document.createElement('div');
+          dishDiv.classList.add('dish');
+      
+          const img = document.createElement('img');
+          img.src = dish.img;
+          img.alt = dish.alt;
+      
+          const details = document.createElement('div');
+          details.classList.add('dish-details');
+      
+          const name = document.createElement('h3');
+          name.textContent = dish.name;
+      
+          const price = document.createElement('p');
+          price.innerHTML = `<strong>Price:</strong> ${dish.price}`;
+      
+          const desc = document.createElement('p');
+          desc.textContent = dish.description;
+      
+          details.appendChild(name);
+          details.appendChild(price);
+          details.appendChild(desc);
+      
+          dishDiv.appendChild(img);
+          dishDiv.appendChild(details);
+      
+          // ➕ Append to horizontal dish list
+          dishList.appendChild(dishDiv);
+        });
+      
+        // ➕ Append the horizontal row to the section
+        section.appendChild(dishList);
+      
+        return section;
+      }
+      
+      
+      function displayMenu() {
+        const menu = document.getElementById('menu');
+        if (breakfastDishes.length) menu.appendChild(createMealSection('Breakfast', breakfastDishes));
+        if (lunchDishes.length) menu.appendChild(createMealSection('Lunch', lunchDishes));
+        if (dinnerDishes.length) menu.appendChild(createMealSection('Dinner', dinnerDishes));
+      }
+      
+      displayMenu();
+     // Show/hide button on scroll

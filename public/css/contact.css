@@ -55,7 +55,7 @@ img {
     width: 100%;
     height: 88vh;
     background-image: linear-gradient(rgba(59, 0, 0, 0.3), rgba(59, 0, 0, 0.3)),
-    url('background.jpg');
+    url('../image/background.jpg');
     opacity: 100%;
     background-size: cover;
     background-position: center;
