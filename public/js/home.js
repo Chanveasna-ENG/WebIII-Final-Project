@@ -161,7 +161,6 @@ const breakfastDishes = [
         heading.textContent = title;
         section.appendChild(heading);
       
-        // ➕ NEW: wrapper for horizontal layout
         const dishList = document.createElement('div');
         dishList.classList.add('dish-list');
       
@@ -185,22 +184,56 @@ const breakfastDishes = [
           const desc = document.createElement('p');
           desc.textContent = dish.description;
       
+          // Quantity input
+          const qtyInput = document.createElement('input');
+          qtyInput.type = 'number';
+          qtyInput.min = 1;
+          qtyInput.value = 1;
+          qtyInput.placeholder = 'Quantity';
+          qtyInput.classList.add('quantity-input');
+      
+          // Extra preferences
+          const prefsInput = document.createElement('textarea');
+          prefsInput.placeholder = 'Extra preferences (e.g., no onions)';
+          prefsInput.classList.add('preferences-input');
+      
+          // Confirm button
+          const confirmBtn = document.createElement('button');
+          confirmBtn.textContent = 'Confirm';
+          confirmBtn.classList.add('confirm-btn');
+          confirmBtn.addEventListener('click', () => {
+            const quantity = parseInt(qtyInput.value, 10);
+            const prefs = prefsInput.value.trim() || 'None';
+      
+            // Extract numeric value from price (e.g., '4000៛' -> 4000)
+            const numericPrice = parseInt(dish.price.replace(/[^\d]/g, ''), 10);
+            const totalPrice = quantity * numericPrice;
+      
+            alert(`✔️ Order Confirmed:
+      Dish: ${dish.name}
+      Quantity: ${quantity}
+      Preferences: ${prefs}
+      Price per item: ${dish.price}
+      Total: ${totalPrice}៛`);
+          });
+      
           details.appendChild(name);
           details.appendChild(price);
           details.appendChild(desc);
+          details.appendChild(qtyInput);
+          details.appendChild(prefsInput);
+          details.appendChild(confirmBtn);
       
           dishDiv.appendChild(img);
           dishDiv.appendChild(details);
-      
-          // ➕ Append to horizontal dish list
           dishList.appendChild(dishDiv);
         });
       
-        // ➕ Append the horizontal row to the section
         section.appendChild(dishList);
-      
         return section;
       }
+      
+      
       
       
       function displayMenu() {
@@ -211,4 +244,3 @@ const breakfastDishes = [
       }
       
       displayMenu();
-     // Show/hide button on scroll
