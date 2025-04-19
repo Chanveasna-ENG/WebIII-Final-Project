@@ -48,7 +48,7 @@ img {
 }
 
 /* Reservation Section (same layout as login) */
-.login-section {
+.reservation-section {
     min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(59, 0, 0, 0.4), rgba(59, 0, 0, 0.4)), url('food.jpeg');
@@ -63,7 +63,7 @@ img {
 
 
 /* Reservation Form Styles */
-.login-form {
+.reservation-form {
     width: 400px;
     background-color: #fff;
     padding: 30px;
@@ -71,23 +71,23 @@ img {
     border-radius: 8px;
 }
 
-.login-form h2 {
+.reservation-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: rgb(144, 0, 0);
     font-family: cursive;
 }
 
-.login-form label {
+.reservation-form label {
     display: block;
     margin: 10px 0 5px;
     color: rgb(59, 0, 0);
     font-weight: bold;
 }
 
-.login-form input,
-.login-form textarea,
-.login-form select {
+.reservation-form input,
+.reservation-form textarea,
+.reservation-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -98,12 +98,12 @@ img {
 }
 
 /* Adjust textarea specifically */
-.login-form textarea {
+.reservation-form textarea {
     min-height: 70px;
 }
 
 /* Submit Button */
-.login-form button {
+.reservation-form button {
     width: 100%;
     padding: 10px;
     background-color: rgb(144, 0, 0);
@@ -115,13 +115,13 @@ img {
     transition: background-color 0.3s ease;
 }
 
-.login-form button:hover {
+.reservation-form button:hover {
     background-color: rgb(107, 0, 0);
 }
 
 /* for table selected
  */
-.login-form select {
+.reservation-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
