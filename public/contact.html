@@ -1,103 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Us</title>
-        <link rel="stylesheet" href="./css/contact.css">
-        <link href="image/logo/icon.favicon" rel="Icon">
-    </head>
-    <body>
-        <!-- Navigation Bar -->
-        <div class="navbar">
-            <img src="image/logo/logo.png">
-            <ul>
-                <li><a href="home.html">Home</a></li>&nbsp;
-                <li><a href = "reservation.html">Reservation</a></li>&nbsp;
-                <li><a href="login.html">Log in</a></li>&nbsp;
-                <li><a href="contact.html">Contact</a></li>&nbsp;
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="./css/contact.css">
+    <link href="image/logo/icon.favicon" rel="Icon">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <img src="image/logo/logo.png">
+        <ul>
+            <li><a href="/home">Home</a></li>&nbsp;
+            <li><a href="/reservation">Reservation</a></li>&nbsp;
+            <li><a href="/login">Log in</a></li>&nbsp;
+            <li><a href="/contact">Contact</a></li>&nbsp;
         </ul>
-        </div>
+    </div>
 
-        <!-- Contact Page Banner -->
-        <div class="banner">
-            <div>
-                <h1>Contact Us</h1>
-                <h3>GET IN TOUCH OR BOOK A TABLE</h3>
+    <!-- Contact Page Banner -->
+    <div class="banner">
+        <div>
+            <h1>Contact Us</h1>
+            <h3>GET IN TOUCH OR BOOK A TABLE</h3>
+        </div>
+    </div>
+
+    <!-- Contact and Booking Forms -->
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="contactMessage"></p>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.1030887406096!2d104.90094569999997!3d11.616000099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095177ee61fd7d%3A0xa66cfdf83a58b2ae!2z4Z6f4Z624Z6A4Z6b4Z6c4Z634Z6R4Z-S4Z6Z4Z624Z6b4Z-Q4Z6Z4Z6i4Z624Z6Y4Z-B4Z6a4Z634Z6A4Z624Z-G4Z6E4Z6X4Z-S4Z6T4Z-G4Z6W4Z-B4Z6J!5e0!3m2!1skm!2skh!4v1744944797109!5m2!1skm!2skh"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+    <script src="contact.js"></script>
+
+</body>
+
+<!-- Footer -->
+<footer>
+    <div class="section">
+        <h1>ABOUT US</h1>
+        <div class="content2">
+            <p><a href="/home">Home</a></p>
+            <p><a href="/contact">Contact</a></p>
+            <p><a href="/reservation">Reservation</a></p>
+        </div>
+    </div>
+    <div class="section">
+        <h1>Contact Info</h1>
+        <div class="content">
+            <p><img src="image/logo/location.png" alt="location-icon" class="icon">#278H, Street 201R, Kroalkor Village,
+                Sangkat Kilometer 6, Khan Russey Keo , Phnom Penh, Cambodia</p>
+            <p><img src="image/logo/call.png" alt="call-icon" class="icon">+855 12 266 631</p>
+            <P><img src="image/logo/email.webp" alt="email-icon" class="icon"><a href="mailto:info@aupp.edu.kh"
+                    style="text-decoration: none; color: inherit;">info@aupp.edu.kh</a></P>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Reservation</h1>
+        <div class="content">
+            <p><em>Book a table with us now!</em></p>
+            <p><a href="/reservation">Reservation</a></p>
+            <div class="media">
+                <a href="https://www.facebook.com/AUPPkh/" target="_blank"><img src="image/logo/fb.png"
+                        alt="Facebook"></a>
+                <a href="https://www.instagram.com/aupp.edu.kh/?hl=en" target="_blank"><img src="image/logo/ig.png"
+                        alt="Instagram"></a>
+                <a href="tel: +855 12 266 631"><img src="./image/logo/phone.png"></a>
             </div>
-        </div>
-
-        <!-- Contact and Booking Forms -->
-        <div class="contact-container">
-            <div class="contact-form">
-                <h2>Contact Form</h2>
-                <form id="contactForm">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-
-                    <button type="submit">Send Message</button>
-                </form>
-                <p id="contactMessage"></p>
-            </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.1030887406096!2d104.90094569999997!3d11.616000099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095177ee61fd7d%3A0xa66cfdf83a58b2ae!2z4Z6f4Z624Z6A4Z6b4Z6c4Z634Z6R4Z-S4Z6Z4Z624Z6b4Z-Q4Z6Z4Z6i4Z624Z6Y4Z-B4Z6a4Z634Z6A4Z624Z-G4Z6E4Z6X4Z-S4Z6T4Z-G4Z6W4Z-B4Z6J!5e0!3m2!1skm!2skh!4v1744944797109!5m2!1skm!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
-        <script src="contact.js"></script>
+    </div>
+    <div class="section">
+        <h1>Opening Hours</h1>
+        <div class="content">
+            <p>Mon-Fri: 6:30am - 9:30pm</p>
+            <p>Sat & Sun: 7:30am - 10:30pm</p>
+        </div>
+    </div>
+    <div id="logo">
+        <div class="content">
+            <img src="image/logo/Pisar-footer-.png" id="footer-logo">
+        </div>
 
-    </body>
+    </div>
+</footer>
+<p id="credit">© 2024 - All Rights Reserved - Pisa</p>
 
-        <!-- Footer -->
-        <footer>
-            <div class="section">
-                <h1>ABOUT US</h1>
-                <div class="content2">
-                    <p><a href="home.html">Home</a></p>
-                    <p><a href="contact.html">Contact</a></p>
-                    <p><a href="reservation.html">Reservation</a></p>
-                </div>
-    
-            </div>             
-            <div class="section">
-                <h1>Contact Info</h1>
-                <div class="content">
-                    <p><img src="image/logo/location.png" alt="location-icon" class="icon">#278H, Street 201R, Kroalkor Village, Sangkat Kilometer 6, Khan Russey Keo , Phnom Penh, Cambodia</p>
-                    <p><img src="image/logo/call.png" alt="call-icon" class="icon">+855 12 266 631</p>
-                    <P><img src="image/logo/email.webp" alt="email-icon" class="icon"><a href="mailto:info@aupp.edu.kh" style="text-decoration: none; color: inherit;">info@aupp.edu.kh</a></P>
-                </div>
-            </div>        
-            
-            <div class="section">
-                <h1>Reservation</h1>
-                <div class="content">
-                    <p><em>Book a table with us now!</em></p>
-                    <p><a href="reservation.html">Reservation</a></p>
-                    <div class="media">
-                        <a href="https://www.facebook.com/AUPPkh/" target="_blank"><img src="image/logo/fb.png" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/aupp.edu.kh/?hl=en" target="_blank"><img src="image/logo/ig.png" alt="Instagram"></a>
-                        <a href="tel: +855 12 266 631"><img src="./image/logo/phone.png"></a>
-                    </div>
-                    
-                </div>
-            </div>        
-            <div class="section">
-                <h1>Opening Hours</h1>
-                <div class="content">
-                    <p>Mon-Fri: 6:30am - 9:30pm</p>
-                    <p>Sat & Sun: 7:30am - 10:30pm</p>
-                </div>
-            </div>        
-            <div id="logo">
-                <div class="content">
-                    <img src="image/logo/Pisar-footer-.png" id="footer-logo">
-                </div>
-    
-            </div>  
-        </footer>
-        <p id="credit">© 2024 - All Rights Reserved - Pisa</p>
 </html>
