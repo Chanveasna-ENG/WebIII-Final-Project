@@ -49,8 +49,8 @@ img {
 .navbar ul li a:hover::after {
     width: 100%;
 }
-/* Login Section with Background */
-.login-section {
+/* Register Section*/
+.login-section{
     height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(59, 0, 0, 0.4), rgba(59, 0, 0, 0.4)), url('food.jpeg');
