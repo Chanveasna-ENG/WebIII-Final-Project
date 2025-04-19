@@ -156,82 +156,66 @@ const breakfastDishes = [
     function createMealSection(title, dishes) {
         const section = document.createElement('div');
         section.classList.add('menu-section');
-      
+    
         const heading = document.createElement('h2');
         heading.textContent = title;
         section.appendChild(heading);
-      
+    
         const dishList = document.createElement('div');
         dishList.classList.add('dish-list');
-      
+    
         dishes.forEach(dish => {
-          const dishDiv = document.createElement('div');
-          dishDiv.classList.add('dish');
-      
-          const img = document.createElement('img');
-          img.src = dish.img;
-          img.alt = dish.alt;
-      
-          const details = document.createElement('div');
-          details.classList.add('dish-details');
-      
-          const name = document.createElement('h3');
-          name.textContent = dish.name;
-      
-          const price = document.createElement('p');
-          price.innerHTML = `<strong>Price:</strong> ${dish.price}`;
-      
-          const desc = document.createElement('p');
-          desc.textContent = dish.description;
-      
-          // Quantity input
-          const qtyInput = document.createElement('input');
-          qtyInput.type = 'number';
-          qtyInput.min = 1;
-          qtyInput.value = 1;
-          qtyInput.placeholder = 'Quantity';
-          qtyInput.classList.add('quantity-input');
-      
-          // Extra preferences
-          const prefsInput = document.createElement('textarea');
-          prefsInput.placeholder = 'Extra preferences (e.g., no onions)';
-          prefsInput.classList.add('preferences-input');
-      
-          // Confirm button
-          const confirmBtn = document.createElement('button');
-          confirmBtn.textContent = 'Confirm';
-          confirmBtn.classList.add('confirm-btn');
-          confirmBtn.addEventListener('click', () => {
-            const quantity = parseInt(qtyInput.value, 10);
-            const prefs = prefsInput.value.trim() || 'None';
-      
-            // Extract numeric value from price (e.g., '4000៛' -> 4000)
-            const numericPrice = parseInt(dish.price.replace(/[^\d]/g, ''), 10);
-            const totalPrice = quantity * numericPrice;
-      
-            alert(`✔️ Order Confirmed:
-      Dish: ${dish.name}
-      Quantity: ${quantity}
-      Preferences: ${prefs}
-      Price per item: ${dish.price}
-      Total: ${totalPrice}៛`);
-          });
-      
-          details.appendChild(name);
-          details.appendChild(price);
-          details.appendChild(desc);
-          details.appendChild(qtyInput);
-          details.appendChild(prefsInput);
-          details.appendChild(confirmBtn);
-      
-          dishDiv.appendChild(img);
-          dishDiv.appendChild(details);
-          dishList.appendChild(dishDiv);
+            const dishDiv = document.createElement('div');
+            dishDiv.classList.add('dish');
+    
+            const img = document.createElement('img');
+            img.src = dish.img;
+            img.alt = dish.alt;
+    
+            const details = document.createElement('div');
+            details.classList.add('dish-details');
+    
+            const name = document.createElement('h3');
+            name.textContent = dish.name;
+    
+            const price = document.createElement('p');
+            price.innerHTML = `<strong>Price:</strong> ${dish.price}`;
+    
+            const desc = document.createElement('p');
+            desc.textContent = dish.description;
+    
+            // Existing inputs & confirm button (optional: you can keep or remove this part)
+    
+            // New "+" button to go to additional customization page
+            const plusBtn = document.createElement('button');
+            plusBtn.textContent = '+';
+            plusBtn.classList.add('customize-btn');
+            plusBtn.addEventListener('click', () => {
+                // Send dish info via URL parameters
+                const params = new URLSearchParams({
+                    name: dish.name,
+                    img: dish.img,
+                    price: dish.price,
+                    description: dish.description
+                });
+                window.location.href = `customize.html?${params.toString()}`;
+            });
+    
+            // Append elements
+            details.appendChild(name);
+            details.appendChild(price);
+            details.appendChild(desc);
+            details.appendChild(plusBtn); // new + button added here
+    
+            dishDiv.appendChild(img);
+            dishDiv.appendChild(details);
+            dishList.appendChild(dishDiv);
         });
-      
+    
         section.appendChild(dishList);
         return section;
-      }
+    }
+    
       
       
       

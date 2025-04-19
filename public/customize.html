@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customize Dish</title>
+  <link rel="stylesheet" href="./css/customize.css">
+  <link rel="icon" href="./image/logo/icon.favicon" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn" onclick="goHome()">← Return to Home</button>
+
+    <div class="dish-preview">
+      <img id="dish-img" alt="Dish Image">
+      <div class="dish-info">
+        <h1 id="dish-name"></h1>
+        <p id="dish-price"></p>
+        <p id="dish-description"></p>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1">
+
+        <label for="preferences">Extra Preferences:</label>
+        <textarea id="preferences" placeholder="e.g., no onions"></textarea>
+
+        <button class="add-cart-btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Load query params
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('dish-name').textContent = params.get('name');
+    document.getElementById('dish-price').textContent = `Price: ${params.get('price')}`;
+    document.getElementById('dish-description').textContent = params.get('description');
+    document.getElementById('dish-img').src = params.get('img');
+
+    function addToCart() {
+      const qty = document.getElementById('quantity').value;
+      const prefs = document.getElementById('preferences').value || 'None';
+      const name = params.get('name');
+      const price = params.get('price');
+
+      alert(`🛒 Added to Cart:
+Dish: ${name}
+Quantity: ${qty}
+Preferences: ${prefs}
+Price per item: ${price}`);
+    }
+
+    function goHome() {
+      window.location.href = 'home.html'; // Change to your actual home page file
+    }
+  </script>
+</body>
+</html>
