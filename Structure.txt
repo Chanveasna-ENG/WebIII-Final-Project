@@ -1,0 +1,33 @@
+|-- backend/
+|   |-- config/            # Configuration files (DB, JWT secret, etc.)
+|   |   |-- db.js
+|   |-- controllers/       # Business logic layer (actions for each route)
+|   |   |-- authController.js
+|   |   |-- orderController.js
+|   |   |-- reservationController.js
+|   |   |-- contactController.js
+|   |-- middleware/        # Auth + other middleware
+|   |   |-- auth.js
+|   |-- models/            # DB queries, schema logic
+|   |   |-- userModel.js
+|   |   |-- orderModel.js
+|   |   |-- reservationModel.js
+|   |   |-- contactModel.js
+|   |-- routes/            # Express route handlers
+|   |   |-- authRoutes.js
+|   |   |-- orderRoutes.js
+|   |   |-- reservationRoutes.js
+|   |   |-- contactRoutes.js
+|   |   |-- index.js       # Combine all route files into 1 export
+|   |-- utils/             # Helper functions (email sender, etc.)
+|   |   |-- mail.js
+|   |-- app.js             # Main Express app
+|-- public/                # Frontend HTML, JS, CSS
+|   |-- js/
+|   |-- css/
+|   |-- image/
+|   |-- home.html
+|   |-- contact.html
+|-- .env
+|-- package.json
+|-- README.md

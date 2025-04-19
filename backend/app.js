@@ -2,22 +2,20 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const app = express();
-
-// Database configuration
-// const db = require('./config/db');
-// db.connect();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 // Serve static files from public directory
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Import routes
-// const routes = require('./routes');
-// app.use('/api', routes);
+const routes = require('./routes');
+app.use('/api', routes);
 
 // Webpage page routes
 app.get('/', (req, res) => {

@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Found</title>
 </head>
+
 <body>
+    <div class="navbar">
+        <img src="/image/logo/logo.png">
+        <ul>
+            <li><a href="/home.html">Home</a></li>&nbsp;
+            <li><a href="/reservation.html">Reservation</a></li>&nbsp;
+            <li id="authLink"><a href="/login.html">Log in</a></li>&nbsp;
+            <li><a href="/contact.html">Contact</a></li>&nbsp;
+        </ul>
+    </div>
+
     <h1>Error 404 NOT FOUND</h1>
     <a href="/">Go to Home</a>
+
+    <script>
+        // Check authentication status on page load
+        (async () => {
+            try {
+                const response = await fetch('/api/auth/check', {
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const authLink = document.getElementById('authLink');
+                    authLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
+
+                    document.getElementById('logoutLink').addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        await fetch('/api/auth/logout', { credentials: 'include' });
+                        window.location.href = '/home.html';
+                    });
+                }
+            } catch (error) {
+                console.error('Auth check failed:', error);
+            }
+        })();
+    </script>
 </body>
+
 </html>
