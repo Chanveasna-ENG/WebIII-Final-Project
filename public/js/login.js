@@ -2,8 +2,8 @@ function validateForm() {
     const phone = document.getElementById("phone").value.trim();
     const password = document.getElementById("password").value;
   
-    const phoneRegex = /^\d+$/; // only digits
-    const passwordRegex = /^(?=.*\d).{8,}$/; // min 8 characters, at least one number
+    const phoneRegex = /^\d+$/; 
+    const passwordRegex = /^(?=.*\d).{8,}$/; 
   
     if (!phoneRegex.test(phone)) {
       alert("Phone number must contain digits only.");

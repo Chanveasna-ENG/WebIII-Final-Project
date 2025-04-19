@@ -3,8 +3,8 @@ function validateRegisterForm() {
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
   
-    const phoneRegex = /^\d+$/; // only numbers
-    const passwordRegex = /^(?=.*\d).{8,}$/; // at least 8 characters, one number
+    const phoneRegex = /^\d+$/; 
+    const passwordRegex = /^(?=.*\d).{8,}$/; 
   
     if (!phoneRegex.test(phone)) {
       alert("Phone number must contain digits only.");
@@ -20,7 +20,8 @@ function validateRegisterForm() {
       alert("Passwords do not match.");
       return false;
     }
-  
+
+    alert("You have registered successfully.");
     return true;
   }
   
