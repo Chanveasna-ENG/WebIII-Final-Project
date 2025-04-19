@@ -283,3 +283,13 @@ footer a:hover {
 .close-btn:hover {
     color: red;
 }
+
+
+#logoutLink {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+#logoutLink:hover {
+    color: #cc0000;
+}

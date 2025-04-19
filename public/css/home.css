@@ -402,4 +402,11 @@ footer a:hover {
     background-color: #218838;
   }
   
-  
+  #logoutLink {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+#logoutLink:hover {
+    color: #cc0000;
+}

@@ -13,7 +13,12 @@ const pool = mysql2.createPool({
     timezone: '+07:00',
 });
 
-// Export the pool for use in other modules
-module.exports = pool;
+const query = async (sql, params) => {
+    const [rows] = await pool.execute(sql, params);
+    return rows;
+};
 
-// ./config/db.js
+module.exports = {
+    pool,
+    query
+};

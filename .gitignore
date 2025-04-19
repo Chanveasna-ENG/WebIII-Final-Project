@@ -1,3 +1,13 @@
 node_modules/
 
 .env
+
+backend\services\userServices.js
+
+backend\controllers\userController.js
+
+backend\routes\user.js
+
+secret_note.txt
+
+.gitignore

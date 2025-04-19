@@ -1,19 +1,39 @@
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-function validateForm() {
-  const phoneInput = document.getElementById("phone");
-  const passwordInput = document.getElementById("password");
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-  const phone = phoneInput.value.trim();
-  const password = passwordInput.value;
+  // Basic client-side validation
+  if (!validateForm(email, password)) return;
 
-  const phoneRegex = /^\d+$/;
+  try {
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+      credentials: 'include' // This is crucial for cookies
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      window.location.href = '/home.html'; // Redirect to home
+    } else {
+      alert(data.error || 'Login failed');
+    }
+  } catch (error) {
+    alert('An error occurred. Please try again.');
+  }
+});
+
+function validateForm(email, password) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*\d).{8,}$/;
-
-  let isValid = true;
+  let isValid = true
   clearErrors();
-
-  if (!phoneRegex.test(phone)) {
-    showError(phoneInput, "Phone number must contain digits only.");
+  if (!emailRegex.test(email)) {
+    showError(email, "Please enter a valid email address.");
     isValid = false;
   }
 
@@ -41,6 +61,4 @@ function clearErrors() {
   const inputs = document.querySelectorAll("input");
   inputs.forEach(input => input.style.borderColor = "");
 }
-
-
   
