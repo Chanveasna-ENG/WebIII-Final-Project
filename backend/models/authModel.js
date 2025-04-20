@@ -47,6 +47,14 @@ class Auth {
             [newPassword, userId]
         );
     }
+
+    static async findUserById(id) {
+        const [user] = await query(
+            'SELECT name, email FROM users WHERE id = ?',
+            [id]
+        );
+        return user;
+    }
 }
 
 module.exports = Auth;

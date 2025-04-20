@@ -53,19 +53,29 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
-    <script src="contact.js"></script>
+    <script src="/js/contact.js"></script>
     <script>
-        // Check authentication status on page load
+        // Check auth status and fill form
         (async () => {
             try {
                 const response = await fetch('/api/auth/check', {
                     credentials: 'include'
                 });
-
+                
                 if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update navigation
                     const authLink = document.getElementById('authLink');
                     authLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
-
+                    
+                    // Auto-fill contact form
+                    if (data.authenticated && data.user) {
+                        document.getElementById('name').value = data.user.name;
+                        document.getElementById('email').value = data.user.email;
+                    }
+    
+                    // Logout handler
                     document.getElementById('logoutLink').addEventListener('click', async (e) => {
                         e.preventDefault();
                         await fetch('/api/auth/logout', { credentials: 'include' });

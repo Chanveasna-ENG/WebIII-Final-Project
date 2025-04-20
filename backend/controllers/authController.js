@@ -80,15 +80,27 @@ exports.logout = (req, res) => {
     res.json({ message: 'Logged out successfully' });
 };
 
+
 exports.checkAuth = async (req, res) => {
     try {
         const token = req.cookies?.jwt;
         if (!token) return res.status(401).json({ authenticated: false });
 
-        jwt.verify(token, process.env.JWT_SECRET);
-        res.json({ authenticated: true });
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        
+        // Get user details from DB
+        const user = await Auth.findUserById(decoded.id);
+        if (!user) throw new Error('User not found');
+
+        res.json({ 
+            authenticated: true,
+            user: {
+                name: user.name,
+                email: user.email
+            }
+        });
     } catch (error) {
-        res.status(200).json({ authenticated: false });
+        res.status(401).json({ authenticated: false });
     }
 };
 
