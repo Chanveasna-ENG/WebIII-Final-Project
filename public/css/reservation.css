@@ -10,31 +10,47 @@ img {
 /* Navigation Bar */
 .navbar {
     font-size: 18px;
-    width: 85%;
-    margin-left: 20px;
-    padding: 20px 0px;
+    width: 100%;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
-.navbar ul li {
+.navbar img {
+    width: 200px;
+    height: auto;
+}
+
+.navbar ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px; /* adjust spacing as needed */
     list-style: none;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 15vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar ul li {
     position: relative;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 .navbar ul li a {
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .navbar ul li a::after {
     content: '';
-    height: 3px;
+    height: 2px;
     width: 0;
     background: rgb(144, 0, 0);
     position: absolute;
@@ -46,6 +62,7 @@ img {
 .navbar ul li a:hover::after {
     width: 100%;
 }
+
 
 /* Reservation Section (same layout as login) */
 .reservation-section {
