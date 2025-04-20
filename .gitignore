@@ -11,3 +11,7 @@ backend\routes\user.js
 secret_note.txt
 
 .gitignore
+
+*.zip
+
+*.rar
