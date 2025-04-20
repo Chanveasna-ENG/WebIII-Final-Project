@@ -31,6 +31,10 @@ app.get('/reservation', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/reservation.html'));
 });
 
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/cart.html'));
+});
+
 app.get('/*splat', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/404.html'));
 });

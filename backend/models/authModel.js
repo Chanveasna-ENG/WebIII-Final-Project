@@ -50,7 +50,7 @@ class Auth {
 
     static async findUserById(id) {
         const [user] = await query(
-            'SELECT name, email FROM users WHERE id = ?',
+            'SELECT name, email, phone FROM users WHERE id = ?',
             [id]
         );
         return user;

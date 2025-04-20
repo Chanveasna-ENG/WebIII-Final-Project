@@ -30,3 +30,23 @@ exports.sendOrderConfirmation = async (toEmail, orderDetails) => {
             <p>Estimated delivery: ${orderDetails.estimatedDelivery.toLocaleTimeString()}</p>`
     });
 };
+
+exports.sendReservationConfirmation = async (toEmail, { id, name, date, time, people, table }) => {
+    await transporter.sendMail({
+        from: `"Pisa Restaurant" <${process.env.EMAIL_USER}>`,
+        to: toEmail,
+        subject: `Reservation Confirmation #${id}`,
+        html: `
+            <h1>Reservation Confirmed!</h1>
+            <p>Dear ${name},</p>
+            <p>Your reservation details:</p>
+            <ul>
+                <li>Date: ${date}</li>
+                <li>Time: ${time}</li>
+                <li>Party Size: ${people}</li>
+                <li>Table: ${table}</li>
+            </ul>
+            <p>We look forward to serving you!</p>
+        `
+    });
+};

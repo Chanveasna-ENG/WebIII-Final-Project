@@ -20,7 +20,7 @@
       <li><a href="/contact.html">Contact</a></li>&nbsp;
       <li><a href="/cart.html">Cart</a></li>&nbsp;
       <li id="authLink"><a href="/login.html">Log in</a></li>&nbsp;
-  </ul>
+    </ul>
   </div>
 
   <!-- Reservation Section -->
@@ -121,10 +121,11 @@
   </footer>
   <p id="credit">© 2024 - All Rights Reserved - Pisa</p>
 
-  <script src = "./js/reservation.js"></script>
-  
+  <script src="./js/reservation.js"></script>
+
+
   <script>
-    // Check authentication status on page load
+    // Check auth status and fill form
     (async () => {
       try {
         const response = await fetch('/api/auth/check', {
@@ -132,9 +133,19 @@
         });
 
         if (response.ok) {
+          const data = await response.json();
+
+          // Update navigation
           const authLink = document.getElementById('authLink');
           authLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
 
+          // Auto-fill contact form
+          if (data.authenticated && data.user) {
+            document.getElementById('name').value = data.user.name;
+            document.getElementById('phone').value = data.user.phone;
+          }
+
+          // Logout handler
           document.getElementById('logoutLink').addEventListener('click', async (e) => {
             e.preventDefault();
             await fetch('/api/auth/logout', { credentials: 'include' });
@@ -147,4 +158,5 @@
     })();
   </script>
 </body>
+
 </html>
