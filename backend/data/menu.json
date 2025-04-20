@@ -1,15 +1,15 @@
 {
   "categories": [
     {
-      "name": "breakfast",
+      "name": "BREAKFAST",
       "dishes": [
         {
           "name": "Steamed Rice with Pork",
           "img": "https://images.deliveryhero.io/image/fd-kh/Products/2384350.jpg?width=%s",
-          "alt": "steamed rice with pork",
+          "alt": "Steamed Rice with Pork",
           "type": "breakfast",
           "price": "4000៛",
-          "description": "Perfectly cooked steamed rice with grilled pork and omelette, complemented by fresh cucumber and tomato, tangy pickles and savory dipping sauce."
+          "description": "Cooked steamed rice with grilled pork and omelette, complemented by fresh cucumber and tomato, and savory dipping sauce."
         },
         {
           "name": "Chicken with Steamed Rice",
@@ -49,12 +49,12 @@
           "alt": "Kuy Teav Phnom Penh",
           "type": "breakfast",
           "price": "8000៛",
-          "description": "A classic Cambodian noodle soup featuring silky rice noodles, aromatic broth, and an assortment of savory toppings including pork, beef, or seafood."
+          "description": "A classic Cambodian noodle soup featuring silky rice noodles, and an assortment of toppings including pork, beef, or seafood."
         }
       ]
     },
     {
-      "name": "lunch",
+      "name": "LUNCH",
       "dishes": [
         {
           "name": "Fish Amok",
@@ -75,7 +75,7 @@
         {
           "name": "Stir-Fried Ginger with Pork Ribs",
           "img": "https://pppkhmer.sgp1.digitaloceanspaces.com/image/main/field/image/150519_22a.jpg",
-          "alt": "Stir-fried ginger with pork ribs",
+          "alt": "Stir-fried Ginger with Pork Ribs",
           "type": "lunch",
           "price": "7000៛",
           "description": "Tender pork ribs stir-fried with fresh ginger, garlic, and spices. The dish is fragrant, slightly spicy, and offers a savory, flavorful combination."
@@ -83,10 +83,10 @@
         {
           "name": "Stir-Fried Chicken with Lemongrass Paste",
           "img": "https://grantourismotravels.com/wp-content/uploads/2020/10/Cambodian-Lemongrass-Chicken-Stir-Fry-Recipe-Copyright-2022-Terence-Carter-Grantourismo-T.jpg",
-          "alt": "Stir-Fried Chicken with Lemongrass Paste",
+          "alt": "Stir-fried Chicken with Lemongrass Paste",
           "type": "lunch",
           "price": "7000៛",
-          "description": " Chicken pieces stir-fried with a fragrant lemongrass paste, garlic, and chili, creating a flavorful, aromatic dish with a balance of spice and citrus."
+          "description": "Chicken pieces stir-fried with a fragrant lemongrass paste, garlic, and chili, creating a flavorful, aromatic dish with a balance of spice and citrus."
         },
         {
           "name": "Samlor Machu Youn",
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "name": "dinner",
+      "name": "DINNER",
       "dishes": [
         {
           "name": "Braised Pork Belly",
@@ -128,7 +128,7 @@
         {
           "name": "Stir-fried Noodle",
           "img": "https://images.deliveryhero.io/image/fd-kh/Products/111481.jpg?width=%s",
-          "alt": "stir-fried noodle",
+          "alt": "Stir-fried Noodle",
           "type": "dinner",
           "price": "6000៛",
           "description": "Stir-fried noodles with vegetables, meat, or seafood, seasoned with soy sauce, garlic, and spices, creating a savory, well-balanced dish."
@@ -155,7 +155,7 @@
           "alt": "Cha Kdav Morn",
           "type": "dinner",
           "price": "6000៛",
-          "description": "a spicy stir-fried chicken dish, typically made with fresh herbs like basil or lemongrass. The chicken is cooked with a flavorful, aromatic sauce that balances heat and savory notes, creating a fragrant and spicy meal."
+          "description": "A spicy stir-fried chicken dish, typically made with fresh herbs like basil or lemongrass. The chicken is cooked with a flavorful, aromatic sauce that balances heat and savory notes, creating a fragrant and spicy meal."
         }
       ]
     }
