@@ -1,3 +1,16 @@
+async function getCart() {
+    const response = await fetch('/api/orders/cart');
+    return await response.json();
+}
+
+async function saveCart(cart) {
+    await fetch('/api/orders/cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cart })
+    });
+}
+
 function createMealSection(title, dishes) {
     const section = document.createElement('div');
     section.classList.add('menu-section');
@@ -35,16 +48,17 @@ function createMealSection(title, dishes) {
         const plusBtn = document.createElement('button');
         plusBtn.textContent = 'Order';
         plusBtn.classList.add('customize-btn');
-        plusBtn.addEventListener('click', () => {
-            // Send dish info via URL parameters
-            const params = new URLSearchParams({
-                name: dish.name,
-                img: dish.img,
-                price: dish.price,
-                description: dish.description
-            });
-            window.location.href = `customize.html?${params.toString()}`;
-        });
+        // plusBtn.addEventListener('click', () => {
+        //     // Send dish info via URL parameters
+        //     const params = new URLSearchParams({
+        //         name: dish.name,
+        //         img: dish.img,
+        //         price: dish.price,
+        //         description: dish.description
+        //     });
+        //     window.location.href = `customize.html?${params.toString()}`;
+        // });
+        plusBtn.addEventListener('click', () => showCustomizeModal(dish));
 
         // Append elements
         details.appendChild(name);
@@ -79,4 +93,48 @@ async function displayMenu() {
         alert('Failed to load menu. Please try again later.');
     }
 }
+
+function showCustomizeModal(dish) {
+    const modal = document.createElement('div');
+    modal.className = 'customize-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="${dish.img}" alt="${dish.name}">
+            <h2>${dish.name}</h2>
+            <p>${dish.price}</p>
+            
+            <div class="customize-form">
+                <label>Quantity:
+                    <input type="number" min="1" value="1" id="modal-qty">
+                </label>
+                
+                <label>Special Requests:
+                    <textarea id="modal-notes"></textarea>
+                </label>
+                
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    `;
+
+    modal.querySelector('.close-btn').addEventListener('click', () => 
+        document.body.removeChild(modal));
+        
+    modal.querySelector('.add-to-cart').addEventListener('click', async () => {
+        const cartItem = {
+            ...dish,
+            quantity: parseInt(modal.querySelector('#modal-qty').value),
+            preferences: modal.querySelector('#modal-notes').value
+        };
+        
+        const currentCart = await getCart();
+        await saveCart([...currentCart, cartItem]);
+        document.body.removeChild(modal);
+        alert('Item added to cart!');
+    });
+
+    document.body.appendChild(modal);
+}
+
 displayMenu();

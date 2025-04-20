@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Found</title>
+    <title>Your Cart - Pi-Sa</title>
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/customize.css">
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="icon" href="./image/logo/icon.favicon" type="image/x-icon">
 </head>
-
 <body>
     <div class="navbar">
         <img src="/image/logo/logo.png">
@@ -20,9 +20,20 @@
         </ul>
     </div>
 
-    <h1>Error 404 NOT FOUND</h1>
-    <a href="/">Go to Home</a>
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        <div id="cart-items" class="cart-items">
+            <!-- JS will populate here -->
+        </div>
+        
+        <div class="cart-summary">
+            <h3>Total: <span id="cart-total">0៛</span></h3>
+            <button id="checkout-btn">Order Now</button>
+        </div>
+    </div>
 
+    <script src="/js/cart.js"></script>
+    
     <script>
         // Check authentication status on page load
         (async () => {
@@ -30,11 +41,11 @@
                 const response = await fetch('/api/auth/check', {
                     credentials: 'include'
                 });
-
+                
                 if (response.ok) {
                     const authLink = document.getElementById('authLink');
                     authLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
-
+                    
                     document.getElementById('logoutLink').addEventListener('click', async (e) => {
                         e.preventDefault();
                         await fetch('/api/auth/logout', { credentials: 'include' });
@@ -47,5 +58,4 @@
         })();
     </script>
 </body>
-
 </html>

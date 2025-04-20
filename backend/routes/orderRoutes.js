@@ -1,12 +1,13 @@
-// backend/routes/orderRoutes.js
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middleware/authMiddleware');
 const orderController = require('../controllers/orderController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-router.post('/',
-    authMiddleware.verifyUser,
-    orderController.createOrder
-);
+// Public routes
+router.get('/cart', orderController.getCart);
+router.post('/cart', orderController.updateCart);
+
+// Protected routes
+router.post('/submit', authMiddleware.verifyUser, orderController.createOrder);
 
 module.exports = router;
