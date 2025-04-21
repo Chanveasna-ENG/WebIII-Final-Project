@@ -37,7 +37,7 @@ exports.login = async (req, res) => {
             maxAge: 3600000, // 1 hour
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'Lax',
-            domain: process.env.NODE_ENV === 'development' ? '127.0.0.1' : '127.0.0.1',
+            domain: process.env.NODE_ENV === 'development' ? process.env.IP_ADDRESS : '127.0.0.1',
             path: '/',
         });
 
